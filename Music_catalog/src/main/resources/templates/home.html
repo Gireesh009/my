@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+ <link rel="stylesheet" th:href="@{/style/style.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+<style>
+.table {
+    width: 60%;
+    }
+    .main {
+    margin-top: 5%;
+}
+</style>
+</head>
+<body>
+<div align="center">
+<div class="main">
+<h1>Music Catalog</h1>
+
+</div>
+<div>&nbsp;</div>
+
+ <form th:action ="@{/home}">
+<div class="container">
+<div class="input-group">
+   
+	<input type="text" name="keyword" class="form-control" placeholder="Artist,Genre" required/>
+      <span class="input-group-btn">
+        <button class="btn btn-search " type="submit"><i class="fa fa-search fa-fw"></i></button>
+      </span>
+</div>
+</div>
+ </form>
+  <a th:href=@{/newEmpform}><button class="btn btn-save " type="submit"> Add<i class="fa fa-music"></i></button></a>
+    
+<div>&nbsp;</div>
+
+<table border="1" class="table">
+			<thead>
+				<tr>
+					<th>
+					
+							Music Name
+					</th>
+					<th>
+
+							Artist
+					</th>
+					<th>
+
+							Genre
+					</th>
+					<th>
+
+							Action
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="music : ${listMusic}">
+					<td th:text="${music.MusicName}"></td>
+					<td th:text="${music.Artist}"></td>
+					<td th:text="${music.Genere}"></td>
+					<td> <a th:href="@{/showFormForUpdate/{id}(id=${music.id})}" ><i class="fa fa-pencil"  style=" font-size: 30px;"></i></a>
+					    <a th:href="@{/deleteMusic/{id}(id=${music.id})}" ><i class="fa fa-trash-o" style="color: red; font-size: 30px;"></i></a>
+					</td>
+					
+				</tr>
+			</tbody>
+		</table>
+		
+		</div>
+</body>
+</html>

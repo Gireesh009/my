@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Song</title>
+ <link rel="stylesheet" th:href="@{/style/style.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+<style>
+
+table {
+    margin-right: 27%;
+    }
+    .form-control {
+   
+    width: 250%;
+}
+.btn{
+background-color: cornflowerblue;
+font-weight: 900;
+    color: #f8f9fa;
+    width: -webkit-fill-available;
+}
+.form-group {
+    margin-top: 10%;
+}
+</style>
+</head>
+<body>
+<div align="center">
+<div class="form-group">
+	<h1>Add Songs</h1>
+	<br>
+<form action="#" th:action="@{/save}" th:object="${music}"
+			method="POST">
+			<table>
+		<tr><td>
+			<input type="text" class="form-control" th:field="*{MusicName}"
+				placeholder="Music Name" >
+				</td>
+			  </tr>
+			  <tr><td>	
+				<input type="text" class="form-control" th:field="*{Artist}"
+				placeholder="Artist" >
+				</td>
+			  </tr>
+			  <tr><td>	
+				<input type="text" class="form-control" th:field="*{Genere}"
+				placeholder="Genre" >
+				</td>
+			  </tr>
+			  <tr><td>	
+				<button type="submit" class="form-control btn" > Save </button>
+				</td>
+			  </tr>
+			  </table>
+		</form>
+		</div>
+		</div>
+</body>
+</html>
